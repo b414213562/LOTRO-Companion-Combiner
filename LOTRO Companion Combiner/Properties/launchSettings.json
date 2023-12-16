@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "LOTRO Companion Combiner": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\dev\\_\\lotro-data"
+    }
+  }
+}
