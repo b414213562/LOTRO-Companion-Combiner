@@ -49,10 +49,8 @@ namespace LOTRO_Companion_to_Lua_Lib
             {
                 if (skill is skillsSkill s)
                 {                 
-                    if (s.category == "102") // travel skill
+                    if (s.category == "102" && s.identifier != "1879276393") // travel skill but not Smell the Roses
                     {
-                        if (s.identifier == "1879276393") { continue; } // skip Smell the Roses
-
                         travelSkills.Add(s);
                     }
 
