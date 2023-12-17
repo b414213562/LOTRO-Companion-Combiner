@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="skills" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="skills" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="skill">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="effect" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="id" type="xs:string" />
+                  <xs:attribute name="name" type="xs:string" />
+                  <xs:attribute name="duration" type="xs:string" />
+                  <xs:attribute name="spellcraft" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="identifier" type="xs:string" />
+            <xs:attribute name="name" type="xs:string" />
+            <xs:attribute name="category" type="xs:string" />
+            <xs:attribute name="iconId" type="xs:string" />
+            <xs:attribute name="description" type="xs:string" />
+            <xs:attribute name="travelType" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="mount">
+          <xs:complexType>
+            <xs:attribute name="identifier" type="xs:string" />
+            <xs:attribute name="name" type="xs:string" />
+            <xs:attribute name="category" type="xs:string" />
+            <xs:attribute name="iconId" type="xs:string" />
+            <xs:attribute name="initialName" type="xs:string" />
+            <xs:attribute name="mountCategory" type="xs:string" />
+            <xs:attribute name="mountType" type="xs:string" />
+            <xs:attribute name="sourceDescription" type="xs:string" />
+            <xs:attribute name="morale" type="xs:string" />
+            <xs:attribute name="speed" type="xs:string" />
+            <xs:attribute name="tall" type="xs:string" />
+            <xs:attribute name="peerId" type="xs:string" />
+            <xs:attribute name="description" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="pet">
+          <xs:complexType>
+            <xs:attribute name="identifier" type="xs:string" />
+            <xs:attribute name="name" type="xs:string" />
+            <xs:attribute name="category" type="xs:string" />
+            <xs:attribute name="iconId" type="xs:string" />
+            <xs:attribute name="initialName" type="xs:string" />
+            <xs:attribute name="sourceDescription" type="xs:string" />
+            <xs:attribute name="genus" type="xs:string" />
+            <xs:attribute name="species" type="xs:string" />
+            <xs:attribute name="subSpecies" type="xs:string" />
+            <xs:attribute name="description" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

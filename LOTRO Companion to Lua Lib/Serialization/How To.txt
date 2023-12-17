@@ -1,0 +1,3 @@
+To make an XML Schema file (.XSD) from an XML file:
+	xsd skills.xml
+	xsd /classes skills.xsd

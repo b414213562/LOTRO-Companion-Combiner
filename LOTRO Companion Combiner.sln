@@ -3,9 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LOTRO Companion Combiner", "LOTRO Companion Combiner\LOTRO Companion Combiner.csproj", "{30BBDB9C-7B39-481B-9D9D-C9A9062977B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LOTRO Companion Combiner", "LOTRO Companion Combiner\LOTRO Companion Combiner.csproj", "{30BBDB9C-7B39-481B-9D9D-C9A9062977B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LOTRO Companion Combiner Lib", "LOTRO Companion Combiner Lib\LOTRO Companion Combiner Lib.csproj", "{12C2FE7D-48A9-44C0-9A72-39640404F68D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LOTRO Companion Combiner Lib", "LOTRO Companion Combiner Lib\LOTRO Companion Combiner Lib.csproj", "{12C2FE7D-48A9-44C0-9A72-39640404F68D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LOTRO Companion to Lua Lib", "LOTRO Companion to Lua Lib\LOTRO Companion to Lua Lib.csproj", "{A7D26A9C-EF91-411A-8F24-712F479F30E3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{CFBF6FB2-BAA1-42B1-B74B-C88163C9D66E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Console Programs", "Console Programs", "{F734979A-43B1-4243-89F1-0DD935C35D72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LOTRO Companion to Lua", "LOTRO Companion to Lua\LOTRO Companion to Lua.csproj", "{5F9AA762-B359-410D-B53F-2A7EF7B0321C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +29,23 @@ Global
 		{12C2FE7D-48A9-44C0-9A72-39640404F68D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12C2FE7D-48A9-44C0-9A72-39640404F68D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12C2FE7D-48A9-44C0-9A72-39640404F68D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7D26A9C-EF91-411A-8F24-712F479F30E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7D26A9C-EF91-411A-8F24-712F479F30E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7D26A9C-EF91-411A-8F24-712F479F30E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7D26A9C-EF91-411A-8F24-712F479F30E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F9AA762-B359-410D-B53F-2A7EF7B0321C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F9AA762-B359-410D-B53F-2A7EF7B0321C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F9AA762-B359-410D-B53F-2A7EF7B0321C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F9AA762-B359-410D-B53F-2A7EF7B0321C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{30BBDB9C-7B39-481B-9D9D-C9A9062977B1} = {F734979A-43B1-4243-89F1-0DD935C35D72}
+		{12C2FE7D-48A9-44C0-9A72-39640404F68D} = {CFBF6FB2-BAA1-42B1-B74B-C88163C9D66E}
+		{A7D26A9C-EF91-411A-8F24-712F479F30E3} = {CFBF6FB2-BAA1-42B1-B74B-C88163C9D66E}
+		{5F9AA762-B359-410D-B53F-2A7EF7B0321C} = {F734979A-43B1-4243-89F1-0DD935C35D72}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1BE6D4D4-3AD7-492C-B6D1-D0B3C8BB71C0}
