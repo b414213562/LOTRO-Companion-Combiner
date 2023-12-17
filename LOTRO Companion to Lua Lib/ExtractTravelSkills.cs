@@ -44,8 +44,6 @@ namespace LOTRO_Companion_to_Lua_Lib
         {
             var eol = Environment.NewLine;
 
-            // if (GetClientLanguage() ~= "DE") then return true; end
-
             var result = 
                 $"if ({langVariable} ~= \"{lang}\") then return; end" + eol +
                 "SKILLS = {" + eol;
