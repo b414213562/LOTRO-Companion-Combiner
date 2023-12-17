@@ -44,10 +44,7 @@ namespace LOTRO_Companion_to_Lua_Lib
         {
             var eol = Environment.NewLine;
 
-            var result = 
-                $"if ({langVariable} ~= \"{lang}\") then return; end" + eol +
-                "SKILLS = {" + eol;
-
+            var travelSkills = new List<skillsSkill>();
             foreach (var skill in skills.Items)
             {
                 if (skill is skillsSkill s)
@@ -56,19 +53,27 @@ namespace LOTRO_Companion_to_Lua_Lib
                     {
                         if (s.identifier == "1879276393") { continue; } // skip Smell the Roses
 
-                        var description = s.description.Replace("\n", " ");
-                        description = description.Replace("\\q", "'");
-
-                        result += $"  [{s.identifier}] = " +
-                            $"{{ " +
-                            $"[\"NAME\"] = \"{s.name}\"; " +
-                            $"[\"DESCRIPTION\"] = \"{description}\" " +
-                            $"[\"EFFECT_ID\"] = \"{s.effect[0].id}\" " +
-                            $"[\"EFFECT_NAME\"] = \"{s.effect[0].name}\" " +
-                            $"}} " + eol;
+                        travelSkills.Add(s);
                     }
 
                 }
+            }
+
+            var result =
+                $"if ({langVariable} ~= \"{lang}\") then return; end" + eol +
+                $"SKILLS = {{ -- {travelSkills.Count} skills" + eol;
+
+            foreach (var s in travelSkills)
+            {
+                var description = s.description.Replace("\n", " ");
+                description = description.Replace("\\q", "'");
+
+                result += $"  [{s.identifier}] = {{" + eol +
+                    $"    [\"NAME\"] = \"{s.name}\"; " + eol +
+                    $"    [\"DESCRIPTION\"] = \"{description}\"; " + eol +
+                    $"    [\"EFFECT_ID\"] = \"{s.effect[0].id}\"; " + eol +
+                    $"    [\"EFFECT_NAME\"] = \"{s.effect[0].name}\"; " + eol +
+                    $"  }}; " + eol;
             }
 
             result += "};" + eol;
