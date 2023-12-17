@@ -2,7 +2,7 @@
   "profiles": {
     "LOTRO Companion to Lua": {
       "commandName": "Project",
-      "commandLineArgs": "C:\\dev\\_\\lotro-data"
+      "commandLineArgs": "C:\\dev\\_\\lotro-data LANGUAGE"
     }
   }
 }

@@ -8,7 +8,7 @@ if (args.Length == 0)
 }
 
 var path = args[0];
-var langVariable = "LANGUAGE";
+string? langVariable = null;
 if (args.Length > 1)
 {
     langVariable = args[1];

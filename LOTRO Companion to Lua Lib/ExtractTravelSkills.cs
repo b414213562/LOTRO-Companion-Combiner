@@ -7,7 +7,7 @@ namespace LOTRO_Companion_to_Lua_Lib
 {
     public class ExtractTravelSkills
     {
-        public ExtractTravelSkills(string lotroDataPath, string langVariable)
+        public ExtractTravelSkills(string lotroDataPath, string? langVariable)
         {
             // Get list of languages
             var languages = LotroCompanionHelpers.GetLotroCompanionLanguages(lotroDataPath);
@@ -40,7 +40,7 @@ namespace LOTRO_Companion_to_Lua_Lib
             }
         }
 
-        private string MakeLuaFromXml(skills skills, string lang, string langVariable)
+        private string MakeLuaFromXml(skills skills, string lang, string? langVariable)
         {
             var eol = Environment.NewLine;
 
@@ -57,9 +57,12 @@ namespace LOTRO_Companion_to_Lua_Lib
                 }
             }
 
-            var result =
-                $"if ({langVariable} ~= \"{lang}\") then return; end" + eol +
-                $"SKILLS = {{ -- {travelSkills.Count} skills" + eol;
+            var result = "";
+            if (langVariable != null)
+            {
+                result += $"if ({langVariable} ~= \"{lang}\") then return; end" + eol;
+            }
+            result += $"SKILLS = {{ -- {travelSkills.Count} skills" + eol;
 
             foreach (var s in travelSkills)
             {
