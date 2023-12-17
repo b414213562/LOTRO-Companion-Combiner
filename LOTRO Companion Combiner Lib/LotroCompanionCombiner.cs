@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using System.Xml.Linq;
 
 namespace LOTRO_Companion_Combiner_Lib
 {
@@ -71,6 +72,12 @@ namespace LOTRO_Companion_Combiner_Lib
             var keyRegex = "\"(key:\\d+:\\d+)\"";
             var regex = new Regex(keyRegex);
 
+            var skillsRegexPattern = @"<skill identifier=""(\d+)"" name=""(.*)"" category";
+            var skillRegex = new Regex(skillsRegexPattern);
+
+            var effectRegexPattern = @"<effect id=""(\d+)"" name=""(.*)""/>";
+            var effectRegex = new Regex(effectRegexPattern);
+
             var outputLines = new List<string>();
             foreach (var line in File.ReadAllLines(file.FullName))
             {
@@ -91,7 +98,40 @@ namespace LOTRO_Companion_Combiner_Lib
                         outputLine = outputLine.Replace(value, langLookup["en"][value]);
                     }
                 }
+
+                if (file.Name == "skills.xml")
+                {
+                    // skill names and effects are done differently. 
+                    // skill.name is in labels/[lang]/skills.xml, and
+                    // effect.name is in labels/[lang]/effects.xml
+
+                    // Example:
+                    // <skill identifier="1879193216" name="Strength of the Dead" iconId="1090522259">
+                    //   <effect id="1879193319" name="Strength of the Dead - Aura"/>
+                    // </skill>
+                    var skillMatch = skillRegex.Match(line);
+                    if (skillMatch.Groups.Count == 0) { continue; }
+
+                    var skillId = skillMatch.Groups[1].Value;
+                    var skillName = skillMatch.Groups[2].Value;
+                    if (langLookup[lang].ContainsKey(skillId))
+                    {
+                        outputLine = outputLine.Replace(skillName, langLookup[lang][skillId]);
+                    }
+
+
+                    var effectMatch = effectRegex.Match(line);
+                    if (effectMatch.Groups.Count == 0) { continue; }
+
+                    var effectId = effectMatch.Groups[1].Value;
+                    var effectName = effectMatch.Groups[2].Value;
+                    if (langLookup[lang].ContainsKey(effectId))
+                    {
+                        outputLine = outputLine.Replace(effectName, langLookup[lang][effectId]);
+                    }
+                }
                 outputLines.Add(outputLine);
+
             }
             File.WriteAllLines(file.FullName.Replace(".xml", $"-{lang}.xml"), outputLines);
         }
