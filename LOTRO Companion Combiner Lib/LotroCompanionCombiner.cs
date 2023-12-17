@@ -100,7 +100,7 @@ namespace LOTRO_Companion_Combiner_Lib
         {
             // Match things that look like:
             //   <label key="1879048666" value="Lore of the Blade"/>
-            var keyValueRegex = "<label key=\"(key:.*)\" value=\"(.*)\"/>";
+            var keyValueRegex = "<label key=\"(.*)\" value=\"(.*)\"/>";
 
             if (!langLookup.ContainsKey(lang))
             {
