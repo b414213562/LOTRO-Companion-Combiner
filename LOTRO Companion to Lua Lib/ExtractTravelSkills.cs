@@ -66,7 +66,7 @@ namespace LOTRO_Companion_to_Lua_Lib
 
             foreach (var s in travelSkills)
             {
-                var description = s.description.Replace("\n", " ");
+                var description = s.description.Replace("\n", "\\n");
                 description = description.Replace("\\q", "'");
 
                 result += $"  [{s.identifier}] = {{" + eol +
