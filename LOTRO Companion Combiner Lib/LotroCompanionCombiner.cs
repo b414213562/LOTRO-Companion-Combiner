@@ -5,35 +5,29 @@ namespace LOTRO_Companion_Combiner_Lib
 {
     public class LotroCompanionCombiner
     {
-        // langLookup["en"]["key:620912555:228870261"] = "The More the Merrier"
-        private Dictionary<string, Dictionary<string, string>> langLookup = new Dictionary<string, Dictionary<string, string>>();
+        private readonly LabelLoaderLib.Labels labels;
+        private readonly List<string> langs;
 
         public LotroCompanionCombiner(string rootLotroDataPath)
         {
             var diRoot = new DirectoryInfo(rootLotroDataPath);
 
-            // load the labels:
-            var diLabels = new DirectoryInfo(Path.Combine(rootLotroDataPath, "labels"));
-            foreach (var langDir in diLabels.EnumerateDirectories())
-            {
-                var lang = langDir.Name;
-
-                LoadLanguageKeys(langDir, lang);
-            }
+            labels = new LabelLoaderLib.Labels(rootLotroDataPath);
+            langs = labels.GetLoadedLanguages();
 
             // now process each language:
-            foreach (var kvp in langLookup)
+            foreach (var lang in langs)
             {
-                var lang = kvp.Key;
                 Console.WriteLine($"Processing {lang} files...");
-
                 ProcessDirectory(diRoot, lang);
             }
 
 
         }
 
-        public void ProcessDirectory(DirectoryInfo directoryToProcess, string lang)
+        public void ProcessDirectory(
+            DirectoryInfo directoryToProcess,
+            string lang)
         {
             ProcessFiles(directoryToProcess, lang);
 
@@ -45,7 +39,9 @@ namespace LOTRO_Companion_Combiner_Lib
             }
         }
 
-        public void ProcessFiles(DirectoryInfo directory, string lang)
+        public void ProcessFiles(
+            DirectoryInfo directory,
+            string lang)
         {
             foreach (var file in directory.EnumerateFiles())
             {
@@ -54,9 +50,9 @@ namespace LOTRO_Companion_Combiner_Lib
 
                 // Skip anything that alread has a language code:
                 var shouldSkip = false;
-                foreach (var kvp in langLookup)
+                foreach (var supportedLang in langs)
                 {
-                    if (file.Name.ToLowerInvariant().EndsWith($"-{kvp.Key}.xml")) { shouldSkip = true; }
+                    if (file.Name.ToLowerInvariant().EndsWith($"-{supportedLang}.xml")) { shouldSkip = true; }
                 }
                 if (shouldSkip) { continue; }
 
@@ -89,13 +85,13 @@ namespace LOTRO_Companion_Combiner_Lib
                     if (match.Groups.Count == 0) { continue; }
 
                     var value = match.Groups[1].Value;
-                    if (langLookup[lang].ContainsKey(value))
+                    if (labels.HasKey(lang, value))
                     {
-                        outputLine = outputLine.Replace(value, langLookup[lang][value]);
+                        outputLine = outputLine.Replace(value, labels.GetLabel(lang, value));
                     }
-                    else if (lang != "en" && langLookup["en"].ContainsKey(value))
+                    else if (lang != "en" && labels.HasKey("en", value))
                     {
-                        outputLine = outputLine.Replace(value, langLookup["en"][value]);
+                        outputLine = outputLine.Replace(value, labels.GetLabel("en", value));
                     }
                 }
 
@@ -114,9 +110,9 @@ namespace LOTRO_Companion_Combiner_Lib
 
                     var skillId = skillMatch.Groups[1].Value;
                     var skillName = skillMatch.Groups[2].Value;
-                    if (langLookup[lang].ContainsKey(skillId))
+                    if (labels.HasKey(lang, skillId))
                     {
-                        outputLine = outputLine.Replace(skillName, langLookup[lang][skillId]);
+                        outputLine = outputLine.Replace(skillName, labels.GetLabel(lang, skillId));
                     }
 
 
@@ -125,9 +121,9 @@ namespace LOTRO_Companion_Combiner_Lib
 
                     var effectId = effectMatch.Groups[1].Value;
                     var effectName = effectMatch.Groups[2].Value;
-                    if (langLookup[lang].ContainsKey(effectId))
+                    if (labels.HasKey(lang, effectId))
                     {
-                        outputLine = outputLine.Replace(effectName, langLookup[lang][effectId]);
+                        outputLine = outputLine.Replace(effectName, labels.GetLabel(lang, effectId));
                     }
                 }
                 outputLines.Add(outputLine);
@@ -135,38 +131,6 @@ namespace LOTRO_Companion_Combiner_Lib
             }
             File.WriteAllLines(file.FullName.Replace(".xml", $"-{lang}.xml"), outputLines);
         }
-
-        public void LoadLanguageKeys(DirectoryInfo labelsLangDir, string lang)
-        {
-            // Match things that look like:
-            //   <label key="1879048666" value="Lore of the Blade"/>
-            var keyValueRegex = "<label key=\"(.*)\" value=\"(.*)\"/>";
-
-            if (!langLookup.ContainsKey(lang))
-            {
-                Console.WriteLine($"Adding keys for {lang}...");
-                langLookup[lang] = new Dictionary<string, string>();
-            }
-
-            var regex = new Regex(keyValueRegex);
-
-            foreach (var keyFile in labelsLangDir.EnumerateFiles())
-            {
-                foreach (var line in File.ReadLines(keyFile.FullName))
-                {
-                    var match = regex.Match(line);
-                    if (match.Groups.Count == 3)
-                    {
-                        var key = match.Groups[1].Value;
-                        var value = match.Groups[2].Value;
-
-                        langLookup[lang][key] = value;
-                    }
-
-                }
-            }
-        }
-
 
     }
 }
