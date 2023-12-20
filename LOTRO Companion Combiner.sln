@@ -15,7 +15,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Console Programs", "Console
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LOTRO Companion to Lua", "LOTRO Companion to Lua\LOTRO Companion to Lua.csproj", "{5F9AA762-B359-410D-B53F-2A7EF7B0321C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LOTRO Companion to Lua XDocument", "LOTRO Companion to Lua XDocument\LOTRO Companion to Lua XDocument.csproj", "{BD85F72A-2D8D-48AD-81FD-7F0ADEE58EAA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LOTRO Companion to Lua XDocument", "LOTRO Companion to Lua XDocument\LOTRO Companion to Lua XDocument.csproj", "{BD85F72A-2D8D-48AD-81FD-7F0ADEE58EAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabelLoaderLib", "LabelLoaderLib\LabelLoaderLib.csproj", "{9B269BAE-44DE-4F17-883B-F81B2629A602}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LOTRO Label Lookup", "LOTRO Label Lookup\LOTRO Label Lookup.csproj", "{0F21A4B8-3E45-4BE2-B7E3-9DAAA42303E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +47,14 @@ Global
 		{BD85F72A-2D8D-48AD-81FD-7F0ADEE58EAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD85F72A-2D8D-48AD-81FD-7F0ADEE58EAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD85F72A-2D8D-48AD-81FD-7F0ADEE58EAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B269BAE-44DE-4F17-883B-F81B2629A602}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B269BAE-44DE-4F17-883B-F81B2629A602}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B269BAE-44DE-4F17-883B-F81B2629A602}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B269BAE-44DE-4F17-883B-F81B2629A602}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F21A4B8-3E45-4BE2-B7E3-9DAAA42303E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F21A4B8-3E45-4BE2-B7E3-9DAAA42303E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F21A4B8-3E45-4BE2-B7E3-9DAAA42303E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F21A4B8-3E45-4BE2-B7E3-9DAAA42303E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +65,8 @@ Global
 		{A7D26A9C-EF91-411A-8F24-712F479F30E3} = {CFBF6FB2-BAA1-42B1-B74B-C88163C9D66E}
 		{5F9AA762-B359-410D-B53F-2A7EF7B0321C} = {F734979A-43B1-4243-89F1-0DD935C35D72}
 		{BD85F72A-2D8D-48AD-81FD-7F0ADEE58EAA} = {F734979A-43B1-4243-89F1-0DD935C35D72}
+		{9B269BAE-44DE-4F17-883B-F81B2629A602} = {CFBF6FB2-BAA1-42B1-B74B-C88163C9D66E}
+		{0F21A4B8-3E45-4BE2-B7E3-9DAAA42303E5} = {F734979A-43B1-4243-89F1-0DD935C35D72}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1BE6D4D4-3AD7-492C-B6D1-D0B3C8BB71C0}
