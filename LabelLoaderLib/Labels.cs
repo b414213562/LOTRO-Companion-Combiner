@@ -2,21 +2,37 @@
 
 namespace LabelLoaderLib
 {
+    public enum LabelTypes
+    {
+        Unknown = 0,
+        OnlyItems = 1,
+        Everything = 99,
+    }
+
     public class Labels
     {
         // langLookup["en"]["key:620912555:228870261"] = "The More the Merrier"
         private Dictionary<string, Dictionary<string, string>> langLookup = new Dictionary<string, Dictionary<string, string>>();
 
-        public Labels(string lotroDataPath)
+        public Labels(
+            string lotroDataPath,
+            List<string> languagesToProcess = null,
+            LabelTypes labelTypes = LabelTypes.Everything)
         {
             // load the labels:
             var diLabels = new DirectoryInfo(Path.Combine(lotroDataPath, "labels"));
             foreach (var langDir in diLabels.EnumerateDirectories())
             {
-                var lang = langDir.Name;
-                if (lang == "ru") continue;
+                // If they only requested a subset of languages, skip what the didn't: 
+                if (languagesToProcess != null && !languagesToProcess.Contains(langDir.Name))
+                {
+                    continue;
+                }
 
-                LoadLanguageKeys(langDir, lang);
+                var lang = langDir.Name;
+                //if (lang == "ru") continue;
+
+                LoadLanguageKeys(langDir, lang, labelTypes);
             }
         }
 
@@ -32,7 +48,10 @@ namespace LabelLoaderLib
             return result;
         }
 
-        private void LoadLanguageKeys(DirectoryInfo labelsLangDir, string lang)
+        private void LoadLanguageKeys(
+            DirectoryInfo labelsLangDir,
+            string lang,
+            LabelTypes labelTypes = LabelTypes.Everything)
         {
             // Match things that look like:
             //   <label key="1879048666" value="Lore of the Blade"/>
@@ -48,6 +67,10 @@ namespace LabelLoaderLib
 
             foreach (var keyFile in labelsLangDir.EnumerateFiles())
             {
+                if (labelTypes == LabelTypes.OnlyItems && keyFile.Name != "items.xml")
+                {
+                    continue;
+                }
                 foreach (var line in File.ReadLines(keyFile.FullName))
                 {
                     var match = regex.Match(line);
