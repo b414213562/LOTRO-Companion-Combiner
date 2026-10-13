@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.4.33205.214
+# Visual Studio Version 18
+VisualStudioVersion = 18.9.12112.369 stable
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LOTRO Companion Combiner", "LOTRO Companion Combiner\LOTRO Companion Combiner.csproj", "{30BBDB9C-7B39-481B-9D9D-C9A9062977B1}"
 EndProject
@@ -17,9 +17,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LOTRO Companion to Lua", "L
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LOTRO Companion to Lua XDocument", "LOTRO Companion to Lua XDocument\LOTRO Companion to Lua XDocument.csproj", "{BD85F72A-2D8D-48AD-81FD-7F0ADEE58EAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabelLoaderLib", "LabelLoaderLib\LabelLoaderLib.csproj", "{9B269BAE-44DE-4F17-883B-F81B2629A602}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LabelLoaderLib", "LabelLoaderLib\LabelLoaderLib.csproj", "{9B269BAE-44DE-4F17-883B-F81B2629A602}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LOTRO Label Lookup", "LOTRO Label Lookup\LOTRO Label Lookup.csproj", "{0F21A4B8-3E45-4BE2-B7E3-9DAAA42303E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LOTRO Label Lookup", "LOTRO Label Lookup\LOTRO Label Lookup.csproj", "{0F21A4B8-3E45-4BE2-B7E3-9DAAA42303E5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LOTRO ID Lookup", "LOTRO ID Lookup\LOTRO ID Lookup.csproj", "{61E8BE32-FF6D-4629-90D5-04524362DCBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TitanBarWalletItemsGenerator", "TitanBarWalletItemsGenerator\TitanBarWalletItemsGenerator.csproj", "{7CD6C89E-E514-4CC9-AB7F-3324F238EC56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Festival Buddy Quick Guide Objectives", "Festival Buddy Quick Guide Objectives\Festival Buddy Quick Guide Objectives.csproj", "{360E9599-CA73-4A6F-A8F8-08425DD8BA6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +61,18 @@ Global
 		{0F21A4B8-3E45-4BE2-B7E3-9DAAA42303E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F21A4B8-3E45-4BE2-B7E3-9DAAA42303E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F21A4B8-3E45-4BE2-B7E3-9DAAA42303E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61E8BE32-FF6D-4629-90D5-04524362DCBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61E8BE32-FF6D-4629-90D5-04524362DCBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61E8BE32-FF6D-4629-90D5-04524362DCBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61E8BE32-FF6D-4629-90D5-04524362DCBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CD6C89E-E514-4CC9-AB7F-3324F238EC56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CD6C89E-E514-4CC9-AB7F-3324F238EC56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CD6C89E-E514-4CC9-AB7F-3324F238EC56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CD6C89E-E514-4CC9-AB7F-3324F238EC56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{360E9599-CA73-4A6F-A8F8-08425DD8BA6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{360E9599-CA73-4A6F-A8F8-08425DD8BA6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{360E9599-CA73-4A6F-A8F8-08425DD8BA6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{360E9599-CA73-4A6F-A8F8-08425DD8BA6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +85,9 @@ Global
 		{BD85F72A-2D8D-48AD-81FD-7F0ADEE58EAA} = {F734979A-43B1-4243-89F1-0DD935C35D72}
 		{9B269BAE-44DE-4F17-883B-F81B2629A602} = {CFBF6FB2-BAA1-42B1-B74B-C88163C9D66E}
 		{0F21A4B8-3E45-4BE2-B7E3-9DAAA42303E5} = {F734979A-43B1-4243-89F1-0DD935C35D72}
+		{61E8BE32-FF6D-4629-90D5-04524362DCBD} = {F734979A-43B1-4243-89F1-0DD935C35D72}
+		{7CD6C89E-E514-4CC9-AB7F-3324F238EC56} = {F734979A-43B1-4243-89F1-0DD935C35D72}
+		{360E9599-CA73-4A6F-A8F8-08425DD8BA6A} = {F734979A-43B1-4243-89F1-0DD935C35D72}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1BE6D4D4-3AD7-492C-B6D1-D0B3C8BB71C0}
