@@ -1,5 +1,5 @@
 ﻿
-var path = @"C:\dev\_\lotro-data";
+var path = @"C:\dev\_\lotro-data\lore";
 if (args.Length > 0)
 {
     path = args[1];
