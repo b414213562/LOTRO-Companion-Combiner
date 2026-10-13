@@ -30,12 +30,12 @@ while (true)
             {
                 var quotedValue = $"\"{kvp.Value}\"";
                 Console.WriteLine($"  {kvp.Key}: {quotedValue}");
-
-                //if (kvp.Key == "fr")
-                //{
-                //    System.Windows.Clipboard.SetText(quotedValue);
-                //}
             }
+
+            // Also output in Festival Buddy II's Lua format:
+            // {["ENGLISH"] = ""; ["FRENCH"] = ""; ["GERMAN"] = ""; };
+            //var lua = $"{{[\"ENGLISH\"] = \"{result.Item2["en"]}\"; [\"FRENCH\"] = \"{result.Item2["fr"]}\"; [\"GERMAN\"] = \"{result.Item2["de"]}\"; }};";
+            //Console.WriteLine(lua);
         }
     }
 
