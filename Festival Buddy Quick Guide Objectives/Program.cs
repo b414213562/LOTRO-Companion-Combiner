@@ -93,9 +93,6 @@ var labels = new LabelLoaderLib.Labels(path, languages, LabelLoaderLib.LabelType
 var objectives = CreateSection("_OBJECTIVES = {");
 var progress = CreateSection("_PROGRESS = {");
 var targets = CreateSection("_TARGETS = {");
-var targetsUnique = languages.ToDictionary(
-    language => language,
-    _ => new Dictionary<string, string>());
 var npcs = CreateSection("_NPCS ={");
 var displays = CreateSection("_DISPLAY ={");
 
@@ -166,6 +163,9 @@ foreach (var filePath in Directory.EnumerateFiles(quickGuideSourceDir))
     {
         var festival = fileInfo.Name.Replace("Targets_", "").Replace(".txt", "");
         Console.WriteLine($"Processing targets for {festival}...");
+        var targetsUnique = languages.ToDictionary(
+            language => language,
+            _ => new Dictionary<string, string>());
 
         foreach (var entry in File.ReadAllLines(filePath))
         {
