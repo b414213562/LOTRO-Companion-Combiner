@@ -5,17 +5,35 @@ string ProcessObjective(string objective)
         .Replace("${CURRENT}", "%d")
         .Replace("${MAX}", "%d")
         .Replace("${NUMBER}", "%d")
-        .Replace("${TOTAL}", "%d");
+        .Replace("${TOTAL}", "%d")
+        .Replace(" (%d/8)", " (%d/%d)");
+
     return processed;
 }
 
-string ProcessProgress(string progress)
+string ProcessProgress(string progress, string key)
 {
     var processed = progress
         .Replace("\\q", "\\\"")
         .Replace("-", "%-")
         .Replace("(${NUMBER}/${TOTAL})", "%((%d+)/(%d+)%)")
         .Replace("(${CURRENT}/${MAX})", "%((%d+)/(%d+)%)");
+    if (key == "key:620890253:136263300")
+    {
+        processed = processed.Replace("(3/3)", "%((%d+)/(%d+)%)");
+    }
+    var yuleStations = new List<string>()
+    {
+        "key:620872118:84765777",
+        "key:620872286:84765777",
+        "key:620872322:84765777",
+        "key:620872323:84765777",
+        "key:620872325:84765777",
+    };
+    if (yuleStations.Contains(key))
+    {
+        processed = processed.Replace("(5/5)", "%((%d+)/(%d+)%)");
+    }
     return processed;
 }
 
@@ -134,7 +152,7 @@ foreach (var filePath in Directory.EnumerateFiles(quickGuideSourceDir))
 
             foreach (var language in languages)
             {
-                var value = ProcessProgress(GetLocalizedLabel(labels, language, key));
+                var value = ProcessProgress(GetLocalizedLabel(labels, language, key), key);
                 progress[language].Add($"        [\"{key}\"] = \"{value}\";");
             }
         }
